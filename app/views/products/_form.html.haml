@@ -2,13 +2,15 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :quantity
+    = f.input :name, label: "Product name"
+    %h4 Materials
     = f.simple_fields_for :materials do |m| 
-      = m.input :id, collection: Material.all, label_method: :name, value_method: :id
+      = m.input :id, collection: Material.all, label_method: :name, value_method: :id, label: "Material:"
       = m.link_to_remove "Remove this material"
-    = f.link_to_add "Add a material", :materials
+      %br
+      %br
+    = f.link_to_add "Add a material", :materials 
 
-
+  %br
   .form-actions
     = f.button :submit
