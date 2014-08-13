@@ -69,6 +69,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
+      binding.pry
       params.require(:product).permit(:name, :quantity, materials_attributes: [:id, :name, :weight, :_destroy])
     end
 end

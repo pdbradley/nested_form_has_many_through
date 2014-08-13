@@ -5,8 +5,7 @@
     = f.input :name
     = f.input :quantity
     = f.simple_fields_for :materials do |m| 
-      = m.input :name
-      = m.input :weight
+      = m.input :id, collection: Material.all, label_method: :name, value_method: :id
       = m.link_to_remove "Remove this material"
     = f.link_to_add "Add a material", :materials
 
