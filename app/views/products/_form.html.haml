@@ -1,9 +1,15 @@
-= simple_form_for(@product) do |f|
+= simple_nested_form_for(@product) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
     = f.input :quantity
+    = f.simple_fields_for :materials do |m| 
+      = m.input :name
+      = m.input :weight
+      = m.link_to_remove "Remove this material"
+    = f.link_to_add "Add a material", :materials
+
 
   .form-actions
     = f.button :submit
